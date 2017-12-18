@@ -119,7 +119,7 @@ public class Sampler extends GUIApplication {
 				}
 			}); 
 			viewObjects.add(cb);
-			viewObjects.add(new AnimatedDog("dog",3,true));
+			viewObjects.add(new AnimatedDog("dog", "blue", 3,true));
 		}
 		
 		public void mouseDragged(MouseEvent m) {
