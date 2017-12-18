@@ -50,3 +50,7 @@ public class DogMaker {
 		dogList.add(new AnimatedDog(d, o, g, s));
 	}
 }
+
+/* String[] data = line.split(",");
+ * dogMaker.add(new AnimatedDog(data[0], data[1], Intefer.parseInt(data[2]), Boolean.parseBoolean(data[3]));
+*/
