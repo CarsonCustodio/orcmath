@@ -3,23 +3,17 @@ package guiPlayer;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;
-import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-
-import javax.imageio.ImageIO;
 import javax.swing.JFrame;
-
 import carsoncustodio.AnimatedDog;
 import guiTeacher.GUIApplication;
 import guiTeacher.components.*;
 import guiTeacher.interfaces.FileRequester;
-import guiTeacher.interfaces.KeyedComponent;
 import guiTeacher.interfaces.Visible;
-import guiTeacher.userInterfaces.FileLoader;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 
 public class Sampler extends GUIApplication implements FileRequester{
