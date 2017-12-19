@@ -34,11 +34,8 @@ public abstract class StyledComponent extends Component {
 	private static Font tabFont = new Font("Times Roman",Font.PLAIN,14);//also used in tables
 	private static Color tabColor = new Color(150,200,255);
 	private static Color tabShade = new Color(150,200,255);
-	private static boolean buttonOutline = false;
-	private static int buttonOutlineSize = 2;
 	
 	private static Font baseFont =new Font("Times Roman",Font.PLAIN,14);//also used in tables
-	private static Font monoFont =new Font("Courier",Font.PLAIN,14);//also used in tables
 	private static Color textColor = Color.black;
 	private static Color headerColor = new Color(0,0,0);
 	private static Color bodyColor = new Color(0,0,0);
@@ -48,7 +45,6 @@ public abstract class StyledComponent extends Component {
 	private static Color activeBorderColor = new Color(0,0,0);
 	private static Color staticBorderColor = new Color(0,0,0);
 	private static Color accentColor = new Color(150,150,150);
-	private static Color highlightColor = new Color(200,200,240);
 	private static int headerAlign = ALIGN_CENTER;
 	private static int bodyAlign = ALIGN_LEFT;
 	private static int animationTime = 600;//duration of transitions
@@ -62,14 +58,6 @@ public abstract class StyledComponent extends Component {
 	
 	public Color getTextColor(){
 		return textColor;
-	}
-	
-	public static void setMonoText(Font f){
-		monoFont = f;
-	}
-	
-	public Font getMonoFont(){
-		return monoFont;
 	}
 	
 	public StyledComponent(int x, int y, int w, int h) {
@@ -89,17 +77,6 @@ public abstract class StyledComponent extends Component {
 		baseFont = f;
 	}
 	
-	
-	
-	
-	public static boolean isButtonOutline() {
-		return buttonOutline;
-	}
-
-	public static void setButtonOutline(boolean buttonOutline) {
-		StyledComponent.buttonOutline = buttonOutline;
-	}
-
 	public Color getInactiveBorderColor() {
 		return inactiveBorderColor;
 	}
@@ -148,14 +125,6 @@ public abstract class StyledComponent extends Component {
 	}
 
 
-
-	public static int getButtonOutlineSize() {
-		return buttonOutlineSize;
-	}
-
-	public static void setButtonOutlineSize(int buttonOutlineSize) {
-		StyledComponent.buttonOutlineSize = buttonOutlineSize;
-	}
 
 	public static void setTableBorder(int tableBorder) {
 		StyledComponent.tableBorder = tableBorder;
@@ -218,15 +187,6 @@ public abstract class StyledComponent extends Component {
 	public void setHeaderAlign(int headerAlign) {
 		this.headerAlign = headerAlign;
 	}
-
-	public static void setHighlightColor(Color c) {
-		highlightColor = c;
-	}
-
-	public Color getHighlightColor() {
-		return highlightColor;
-	}
-	
 
 	public int getBodyAlign() {
 		return bodyAlign;

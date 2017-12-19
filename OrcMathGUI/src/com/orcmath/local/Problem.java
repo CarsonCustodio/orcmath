@@ -80,7 +80,6 @@ public class Problem {
 	//String questionAddress = "PDFs/question.png"; 
 	//String answerAddress = "PDFs/answer.png"; 
 
-	public static final String	CUSTOM_TAG="Custom";
 	public static final String	GRAPHICS_TAG="~!~";
 	public static final String	ALLOWBREAK_TAG="~br~";
 	public static final String[] problemTypes = {
@@ -689,22 +688,6 @@ public class Problem {
 
 	}
 
-	public Problem(String problemLaTaX, String solutionLaTeX){
-		keyTheorem = null;
-		instructions = "";
-		question = "\\begin{array}{l}";
-		question += problemLaTaX+"\\end{array}";
-		answer = "\\begin{array}{l}";
-		answer += problemLaTaX + "\\\\";
-		answer += solutionLaTeX;
-		answer += "\\end{array}";
-		numberOfColumns=1;
-		verticalSpacing=40;
-		scaleFactor = .9;
-		whetherInstructionsAreNeverIncluded = true;    	
-		questionImage = toImage(question);
-		answerImage = toImage(answer);
-	}
 
 	public void getProblemData(Type newProblem){
 		keyTheorem =newProblem.getKeyTheorem();
@@ -722,7 +705,6 @@ public class Problem {
 		questionImage = toImage(question);
 		answerImage = toImage(answer);
 	}
-	
 
 	public void getProblemData(DynamicType newProblem){
 		keyTheorem =newProblem.getKeyTheorem();
@@ -821,7 +803,7 @@ public class Problem {
 		return theQuestion;
 	}
 
-	public static BufferedImage toImage(String s) {
+	public static BufferedImage toImage(String s){
 		while(s.contains("�")){
 			System.out.println("CONVERTING"+s);
 			s = s.replace("�", "-");    		

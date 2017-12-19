@@ -70,7 +70,7 @@ public class Link extends Button {
 
 			if(!hover)g.setColor(getLinkColor());
 			else g.setColor(Utilities.lighten(getLinkColor(),.4f));
-			g.setFont(getFont());
+			g.setFont(getBaseFont());
 			FontMetrics fm = g.getFontMetrics();
 
 			if(getText()!= null){

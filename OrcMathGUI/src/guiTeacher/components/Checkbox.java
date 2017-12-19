@@ -20,10 +20,8 @@ package guiTeacher.components;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.Graphics2D;
 
-import guiTeacher.GUIApplication;
 import guiTeacher.interfaces.Clickable;
 
 
@@ -87,15 +85,7 @@ public class Checkbox extends StyledComponent implements Clickable {
 
 	@Override
 	public boolean isHovered(int x, int y) {
-		boolean hovered = x>getX() && x < getX()+CHECKBOX_LENGTH && y>getY() && y < getY()+CHECKBOX_LENGTH;
-		if(hovered){
-			GUIApplication.mainFrame.setCursor(new Cursor(Cursor.HAND_CURSOR));
-			setLeft(false);
-		}else if (!hasLeft()){
-			setLeft(true);
-			GUIApplication.mainFrame.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-		}
-		return hovered;
+		return x>getX() && x < getX()+CHECKBOX_LENGTH && y>getY() && y < getY()+CHECKBOX_LENGTH;
 	}
 
 	@Override

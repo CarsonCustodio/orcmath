@@ -31,7 +31,7 @@ public class TextLabel extends StyledComponent implements TextComponent{
 	//FIELDS
 		private String text;
 		private Font font;
-		private float size;
+		private int size;
 		private Color textColor;
 		private int align; 
 		
@@ -72,13 +72,13 @@ public class TextLabel extends StyledComponent implements TextComponent{
 			return text;
 		}
 		
-		public void setSize(float size){
+		public void setSize(int size){
 			this.size = size;
-			setFont(font.deriveFont(size));
+			this.font=font.deriveFont(size);
+			update();
 		}
 		
 		public void setFont(Font font){
-			this.font = font;
 			update();
 		}
 		
@@ -86,7 +86,7 @@ public class TextLabel extends StyledComponent implements TextComponent{
 			return font;
 		}
 		
-		public float getSize(){
+		public int getSize(){
 			return size;
 		}
 		
@@ -101,9 +101,7 @@ public class TextLabel extends StyledComponent implements TextComponent{
 			FontMetrics fm = g.getFontMetrics();
 			if(text != null){
 //				Utilities.drawText(g, text, 0, getWidth(), getHeight(), align);
-				if(align==ALIGN_LEFT) g.drawString(text, 0, fm.getHeight());
-				else if(align == ALIGN_CENTER)g.drawString(text, (getWidth()-fm.stringWidth(text))/2, fm.getHeight());
-				else g.drawString(text, getWidth()-fm.stringWidth(text), fm.getHeight());
+				g.drawString(text, 0, fm.getHeight());
 			}
 		}
 

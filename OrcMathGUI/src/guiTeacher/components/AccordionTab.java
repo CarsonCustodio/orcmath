@@ -172,5 +172,4 @@ public class AccordionTab extends Component implements Runnable{
 		
 	}
 
-
 }
