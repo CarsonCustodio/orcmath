@@ -13,6 +13,7 @@ import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
+import carsoncustodio.AnimatedDog;
 import guiTeacher.GUIApplication;
 import guiTeacher.components.*;
 import guiTeacher.interfaces.FileRequester;
@@ -126,12 +127,7 @@ public class Sampler extends GUIApplication implements FileRequester{
 				}
 			}); 
 			viewObjects.add(cb);
-			
-			
-				
-				FileOpenButton fileButton = new FileOpenButton(490, 70, 120, 30, null,Sampler.this);
-				viewObjects.add(fileButton);
-			
+			viewObjects.add(new AnimatedDog("dog", "blue", 3,true));
 		}
 		
 		public void mouseDragged(MouseEvent m) {
@@ -159,15 +155,13 @@ public class Sampler extends GUIApplication implements FileRequester{
 
 	@Override
 	public void setFile(File f) {
-		List<String> lines = FileLoader.getFileAsLines(f);
-		System.out.println("Loading file:");
-		for (String line : lines){
-			System.out.println(line);
-		}
+		// TODO Auto-generated method stub
+		
 	}
 	@Override
 	public JFrame getWindow() {
-		return this;
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 
