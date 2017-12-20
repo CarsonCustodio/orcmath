@@ -1,6 +1,5 @@
 package carsoncustodio;
 
-import guiPlayer.CatalogMaker;
 import guiTeacher.GUIApplication;
 
 public class CatalogMakerGui extends GUIApplication {
