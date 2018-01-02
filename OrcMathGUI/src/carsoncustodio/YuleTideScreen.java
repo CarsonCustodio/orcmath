@@ -10,7 +10,7 @@ import guiTeacher.userInterfaces.FullFunctionScreen;
 
 public class YuleTideScreen extends FullFunctionScreen implements FileRequester{
 	
-	private static final long serialVersionUID = 258186143576427947L;
+	private static final long serialVersionUID = 1L;
 	private TextArea text;
 	private Button imgButton;
 	
@@ -31,9 +31,9 @@ public class YuleTideScreen extends FullFunctionScreen implements FileRequester{
 		});
 		viewObjects.add(imgButton);
 		
-		Graphic img = new Graphic(0, 0, "images/fire.jpg");
+		Graphic img = new Graphic(0, 0, "resources/fire.jpg");
 		viewObjects.add(img);
-		Graphic img2 = new Graphic(0, 0, "images/second.jpg");
+		Graphic img2 = new Graphic(0, 0, "resoureces/second.jpg");
 		viewObjects.add(img2);
 	}
 

@@ -1,17 +1,13 @@
 package carsoncustodio;
 
-import java.io.File;
-import java.util.List;
-import javax.swing.JFrame;
-
 import guiTeacher.GUIApplication;
-import guiTeacher.components.*;
-import guiTeacher.interfaces.FileRequester;
-import guiTeacher.interfaces.Visible;
-import guiTeacher.userInterfaces.FullFunctionScreen;
 
 public class YuleTide extends GUIApplication{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static YuleTide card;
 	public static YuleTideScreen front;
 	public static YuleTideScreen back;
