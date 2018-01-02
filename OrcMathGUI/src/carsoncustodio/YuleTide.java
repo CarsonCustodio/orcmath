@@ -4,9 +4,6 @@ import guiTeacher.GUIApplication;
 
 public class YuleTide extends GUIApplication{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	public static YuleTide card;
 	public static YuleTideScreen front;
