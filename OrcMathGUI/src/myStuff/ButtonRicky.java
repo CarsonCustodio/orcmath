@@ -9,7 +9,8 @@ import guiTeacher.components.Button;
 
 public class ButtonRicky extends Button implements ButtonInterfaceCarson {
 	
-	private boolean isButtonOn = false;
+	private Color color;
+	private boolean isOn;
 
 	public ButtonRicky(int x, int y, int w, int h, String text, Color color, Action action) {
 		super(x, y, w, h, text, color, action);
@@ -22,29 +23,37 @@ public class ButtonRicky extends Button implements ButtonInterfaceCarson {
 	}
 	
 	public void drawButton(Graphics2D g, boolean hover) {
-		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-				RenderingHints.VALUE_ANTIALIAS_ON);
-		if(isButtonOn) {
+		if(hover) {
 			highlight();
-			
+			g.drawOval(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+			g.fillOval(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+		}
+		else {
+			dim();
+			g.drawOval(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+			g.fillOval(this.getX(), this.getY(), this.getWidth(), this.getHeight());
 		}
 	}
 
 	@Override
 	public void setColor(Color color) {
-		// TODO Auto-generated method stub
-		
+		this.color = color;
+		update();
 	}
 
 	@Override
 	public void highlight() {
-		// TODO Auto-generated method stub
-		
+		if(isOn) {
+			this.color = color.brighter();
+			update();
+		}
 	}
 
 	@Override
 	public void dim() {
-		// TODO Auto-generated method stub
-		
+		if(isOn) {
+			this.color = color.darker();
+			update();
+		}
 	}
 }

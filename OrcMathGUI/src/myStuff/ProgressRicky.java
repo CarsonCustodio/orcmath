@@ -6,6 +6,9 @@ import guiTeacher.components.Component;
 
 public class ProgressRicky extends Component implements ProgressInterfaceCarson {
 
+	private int round;
+	private int x;
+
 	public ProgressRicky(int x, int y, int w, int h) {
 		super(x, y, w, h);
 		// TODO Auto-generated constructor stub
@@ -16,18 +19,15 @@ public class ProgressRicky extends Component implements ProgressInterfaceCarson 
 		// TODO Auto-generated method stub
 
 	}
-	//DONT FORGET TO IMPLEMENT THE INTERFACE//
 
 	@Override
 	public void setRound(int round) {
-		// TODO Auto-generated method stub
-		
+		this.round = round;
 	}
 
 	@Override
 	public void setSequenceSize(int x) {
-		// TODO Auto-generated method stub
-		
+		this.x = x;
 	}
 
 	@Override
