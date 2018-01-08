@@ -3,8 +3,9 @@ package myStuff;
 import java.awt.Color;
 
 import guiTeacher.components.Action;
+import guiTeacher.interfaces.Clickable;
 
-public interface ButtonInterfaceCarson{
+public interface ButtonInterfaceCarson extends Clickable{
 
 	public void setColor(Color color);
 

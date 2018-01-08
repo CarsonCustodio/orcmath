@@ -35,7 +35,9 @@ public class SimonScreenCarson extends ClickableScreen implements Runnable{
 	private void nextRound() {
 		acceptingInput = false;
 		roundNumber++;
-		randomMove();
+		sequence.add(randomMove());
+		progress.setRound(roundNumber);
+		progress.setSequenceSize(sequence.size());
 		changeText("Simon's Turn");
 		playSequence();
 		label.setText("Your Turn");
@@ -72,7 +74,7 @@ public class SimonScreenCarson extends ClickableScreen implements Runnable{
 	public void initAllObjects(List<Visible> viewObjects) {
 		addButtons();
 		for(ButtonInterfaceCarson b: buttons){ 
-			viewObjects.add((Visible) b); 
+			viewObjects.add(b); 
 		}
 		progress = getProgress();
 		label = new TextLabel(130,230,300,40,"Let's play Simon!");
@@ -81,7 +83,7 @@ public class SimonScreenCarson extends ClickableScreen implements Runnable{
 		sequence.add(randomMove());
 		sequence.add(randomMove());
 		roundNumber = 0;
-		viewObjects.add((Visible) progress);
+		viewObjects.add(progress);
 		viewObjects.add(label);
 	}
 
