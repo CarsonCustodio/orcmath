@@ -2,11 +2,14 @@ package myStuff;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 
 public class ButtonRicky extends Button implements ButtonInterfaceCarson {
+	
+	private boolean isButtonOn = false;
 
 	public ButtonRicky(int x, int y, int w, int h, String text, Color color, Action action) {
 		super(x, y, w, h, text, color, action);
@@ -19,7 +22,12 @@ public class ButtonRicky extends Button implements ButtonInterfaceCarson {
 	}
 	
 	public void drawButton(Graphics2D g, boolean hover) {
-		
+		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+				RenderingHints.VALUE_ANTIALIAS_ON);
+		if(isButtonOn) {
+			highlight();
+			
+		}
 	}
 
 	@Override
