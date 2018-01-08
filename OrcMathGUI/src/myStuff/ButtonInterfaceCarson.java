@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import guiTeacher.components.Action;
 
-public class ButtonInterfaceCarson extends Clickable{
+public class ButtonInterfaceCarson{
 
 	public void setColor(Color color) {
 		
@@ -23,6 +23,10 @@ public class ButtonInterfaceCarson extends Clickable{
 	}
 
 	public void highlight() {
+		
+	}
+
+	public void dim() {
 		
 	}
 	

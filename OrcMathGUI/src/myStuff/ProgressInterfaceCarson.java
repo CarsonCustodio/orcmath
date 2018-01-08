@@ -1,5 +1,16 @@
 package myStuff;
 
-public class ProgressInterfaceCarson extends Visable{
+public class ProgressInterfaceCarson{
+	
+	public void setRound(int round) {
+		
+	}
+	
+	public void setSequenceSize(int x) {
+		
+	}
 
+	public void gameOver() {
+		
+	}
 }

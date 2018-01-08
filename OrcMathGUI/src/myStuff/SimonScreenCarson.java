@@ -28,13 +28,51 @@ public class SimonScreenCarson extends ClickableScreen implements Runnable{
 	}
 
 	public void run() {
+		label.setText("");
+		nextRound();
+	}
 
+	private void nextRound() {
+		acceptingInput = false;
+		roundNumber++;
+		randomMove();
+		changeText("Simon's Turn");
+		playSequence();
+		label.setText("Your Turn");
+		acceptingInput = true;
+		sequenceIndex = 0;
+	}
+
+	private void playSequence() {
+		ButtonInterfaceCarson b = null;
+		for(MoveInterfaceCarson a: sequence) {
+			if(a != null) {
+				b.dim();
+			}
+			b.highlight();
+			int sleepTime = 10000 / roundNumber;
+			try {
+				Thread.sleep(sleepTime);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		b.dim();
+	}
+
+	private void changeText(String string) {
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		label.setText("");
 	}
 
 	public void initAllObjects(List<Visible> viewObjects) {
 		addButtons();
 		for(ButtonInterfaceCarson b: buttons){ 
-			viewObjects.add(b); 
+			viewObjects.add((Visible) b); 
 		}
 		progress = getProgress();
 		label = new TextLabel(130,230,300,40,"Let's play Simon!");
@@ -43,7 +81,7 @@ public class SimonScreenCarson extends ClickableScreen implements Runnable{
 		sequence.add(randomMove());
 		sequence.add(randomMove());
 		roundNumber = 0;
-		viewObjects.add(progress);
+		viewObjects.add((Visible) progress);
 		viewObjects.add(label);
 	}
 
@@ -57,7 +95,7 @@ public class SimonScreenCarson extends ClickableScreen implements Runnable{
 		Color[] colors = {Color.red, Color.orange, Color.yellow, Color.green, Color.blue, new Color(130, 10, 200)};
 		
 		for(int i = 0; i < numberOfButtons; i ++) {
-			ButtonInterfaceCarson b = getAButton();
+			final ButtonInterfaceCarson b = getAButton();
 			buttons[i] = b;
 			b.setColor(colors[i]);
 			b.setX(i*50);
@@ -68,10 +106,23 @@ public class SimonScreenCarson extends ClickableScreen implements Runnable{
 						Thread blink = new Thread(new Runnable() {
 							public void run() {
 								b.highlight();
-								final ButtonInterfaceCarson b = getAButton();
+								try {
+									Thread.sleep(800);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
+								b.dim();
+								if(b == sequence.get(sequenceIndex).getButton()) {
+									sequenceIndex++;
+								}else {
+									progress.gameOver();
+								}
+								if(sequenceIndex == sequence.size()) {
+									Thread nextRound = new Thread(SimonScreenCarson.this);
+									nextRound.start();
+								}
 							}
 						});
-						
 					}
 				}
 			});
