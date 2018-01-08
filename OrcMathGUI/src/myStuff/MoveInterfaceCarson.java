@@ -1,9 +1,6 @@
 package myStuff;
 
-public class MoveInterfaceCarson {
+public interface MoveInterfaceCarson {
 
-	public ButtonInterfaceCarson getButton() {
-		return null;
-	}
-
+	public ButtonInterfaceCarson getButton();
 }
