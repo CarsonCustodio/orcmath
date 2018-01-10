@@ -11,6 +11,7 @@ import guiTeacher.userInterfaces.ClickableScreen;
 
 public class SimonScreenCarson extends ClickableScreen implements Runnable{
 
+	private static final long serialVersionUID = 1L;
 	TextLabel label;
 	ButtonInterfaceCarson[] buttons;
 	ProgressInterfaceCarson progress;
@@ -47,15 +48,17 @@ public class SimonScreenCarson extends ClickableScreen implements Runnable{
 
 	private void playSequence() {
 		ButtonInterfaceCarson b = null;
-		for(MoveInterfaceCarson a: sequence) {
-			if(a != null) {
+		for(int i=0; i< sequence.size(); i++) {
+			if(b != null) {
 				b.dim();
 			}
+			b = sequence.get(i).getButton();
 			b.highlight();
-			int sleepTime = 10000 / roundNumber;
+			int sleepTime = 50000 / roundNumber;
 			try {
 				Thread.sleep(sleepTime);
-			} catch (InterruptedException e) {
+			} 
+			catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
@@ -88,52 +91,55 @@ public class SimonScreenCarson extends ClickableScreen implements Runnable{
 	}
 
 	private ProgressInterfaceCarson getProgress() {
-		return null;
+		return new ProgressRicky(50,350,100,100);
 	}
 
 	private void addButtons() {
-		int numberOfButtons = 6;
+		int numberOfButtons = 5;
 		buttons = new ButtonInterfaceCarson[numberOfButtons];
-		Color[] colors = {Color.red, Color.orange, Color.yellow, Color.green, Color.blue, new Color(130, 10, 200)};
-		
-		for(int i = 0; i < numberOfButtons; i ++) {
-			final ButtonInterfaceCarson b = getAButton();
-			buttons[i] = b;
-			b.setColor(colors[i]);
-			b.setX(i*50);
-			b.setY(100);
-			b.setAction(new Action() {
-				public void act() {
-					if(acceptingInput) {
-						Thread blink = new Thread(new Runnable() {
-							public void run() {
+		Color[] colors = {Color.RED, Color.YELLOW, Color.ORANGE, Color.GREEN, Color.BLUE, Color.PINK};
+		for(int i = 0; i < numberOfButtons; i++){
+			buttons[i] = getAButton();
+			buttons[i].setColor(colors[i]);
+			buttons[i].setX(100*i+50);
+			buttons[i].setY(100);
+			final ButtonInterfaceCarson b = buttons[i];
+			b.dim();
+			b.setAction(new Action(){
+				public void act(){
+					if(acceptingInput){
+						Thread changeButton = new Thread(new Runnable(){
+							public void run(){
 								b.highlight();
 								try {
 									Thread.sleep(800);
-								} catch (InterruptedException e) {
+								}catch (InterruptedException e) {
 									e.printStackTrace();
 								}
-								b.dim();
-								if(b == sequence.get(sequenceIndex).getButton()) {
-									sequenceIndex++;
-								}else {
-									progress.gameOver();
-								}
-								if(sequenceIndex == sequence.size()) {
-									Thread nextRound = new Thread(SimonScreenCarson.this);
-									nextRound.start();
-								}
+								b.highlight();
 							}
 						});
+						changeButton.start();
+						if(b == sequence.get(sequenceIndex).getButton()){
+							sequenceIndex++;
+						}
+						else{
+							progress.gameOver();
+							acceptingInput = false;
+						}
+
+						if(sequenceIndex == sequence.size()){ 
+							Thread nextRound = new Thread(SimonScreenCarson.this); 
+							nextRound.start(); 
+						}
 					}
 				}
 			});
 		}
-		
 	}
 
 	private ButtonInterfaceCarson getAButton() {
-		return null;
+		return new ButtonRicky(0,0,75,75,"",null);
 	}
 
 	private MoveInterfaceCarson randomMove() {
@@ -145,7 +151,7 @@ public class SimonScreenCarson extends ClickableScreen implements Runnable{
 	}
 
 	private MoveInterfaceCarson getMove(int bIndex) {
-		return null;
+		return new MoveRicky(null);
 	}
 
 }

@@ -2,14 +2,14 @@ package myStuff;
 
 public class MoveRicky implements MoveInterfaceCarson {
 
-	public MoveRicky() {
-		// TODO Auto-generated constructor stub
+	private ButtonInterfaceCarson button;
+
+	public MoveRicky(ButtonInterfaceCarson button) {
+		this.button = button;
 	}
 
-	@Override
 	public ButtonInterfaceCarson getButton() {
-		// TODO Auto-generated method stub
-		return null;
+		return button;
 	}
 
 }

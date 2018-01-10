@@ -1,12 +1,13 @@
 package myStuff;
 
-import guiPlayer.CustomScreen;
 import guiTeacher.GUIApplication;
 
 public class SimonGameCarson extends GUIApplication{
 	
+	private static final long serialVersionUID = 1L;
+
 	public static void main(String[] args) {
-		SimonGameCarson r = new SimonGameCarson(800, 500);
+		SimonGameCarson r = new SimonGameCarson(800, 550);
 		Thread runner = new Thread(r);
 		runner.start();
 	}
@@ -17,7 +18,7 @@ public class SimonGameCarson extends GUIApplication{
 	}
 
 	public void initScreen() {
-		CustomScreen screen = new CustomScreen(getWidth(), getHeight());
+		SimonScreenCarson screen = new SimonScreenCarson(getWidth(), getHeight());
 		setScreen(screen);
 	}
 }
